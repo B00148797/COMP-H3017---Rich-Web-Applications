@@ -5,7 +5,6 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="javascripts/scriptLogin.js"></script>
 
 	<title>Just-Eat</title>
 	<link rel="icon" type="image/png" href="images/favicon.png">
@@ -15,8 +14,8 @@
 	<div data-role="navbar" data-grid="c">
 		<ul>
 			<li><a href="ForYou" id="pageForYou">For you</a></li>
-			<li><a href="Login" class="ui-btn-active" id="pageLogin">Login</a></li>
-			<li><a href="Register" id="pageRegister">Register</a></li>
+			<li><a href="Login" id="pageLogin">Login</a></li>
+			<li><a href="Register" class="ui-btn-active" id="pageRegister">Register</a></li>
 			<li><a href="Help" id="pageHelp">Help</a></li>
 		</ul>
 	</div><!-- /navbar -->
@@ -28,16 +27,19 @@
 	</div>
 
 	<div>
-		<label for="text-1">Username or Email</label>
+		<label for="text-1">Email</label>
 		<input type="text" name="username" id="username" value="">
 	
 		<label for="password-1">Password</label>
-		<input type="password" data-clear-btn="false" name="password" id="password" value="" autocomplete="off">
+		<input type="password" data-clear-btn="false" name="password" id="password-1" value="" autocomplete="off">
+
+		<label for="password-2">Confirm password</label>
+		<input type="password" data-clear-btn="false" name="password" id="password-2" value="" autocomplete="off">
 	
-		<button class="ui-btn" id="buttonLogin">Login</button>
+		<button class="ui-btn" id="buttonLogin">Register</button>
 	</div>
 </body>
 
-<script language="JavaScript" src="javascripts/scriptLogin.js"></script>
+<script language="JavaScript" src="javascripts/scriptRegister.js"></script>
 
 </html>

@@ -8,10 +8,12 @@ var validator = require('validator');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/Login');
-var ManagerRouter = require('./routes/Manager');
-var CustomerRouter = require('./routes/Customer');
-var CookRouter = require('./routes/Cook');
-var ForYouRouter = require('./routes/ForYou');
+var registerRouter = require('./routes/Register');
+var managerRouter = require('./routes/Manager');
+var customerRouter = require('./routes/Customer');
+var cookRouter = require('./routes/Cook');
+var helpRouter = require('./routes/Help');
+var forYouRouter = require('./routes/ForYou');
 
 var app = express();
 
@@ -40,10 +42,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
-app.use('/Manager', ManagerRouter);
-app.use('/Customer', CustomerRouter);
-app.use('/Cook', CookRouter);
-app.use('/ForYou', ForYouRouter);
+app.use('/Register', registerRouter);
+app.use('/Manager', managerRouter);
+app.use('/Customer', customerRouter);
+app.use('/Cook', cookRouter);
+app.use('/Help', helpRouter);
+app.use('/ForYou', forYouRouter);
 
 //Resquest GET
 app.get('/login', function(req, res){
