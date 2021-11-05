@@ -1,25 +1,25 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var validator = require('validator');
+var createError		= require('http-errors');
+var express		 	= require('express');
+var path 			= require('path');
+var cookieParser 	= require('cookie-parser');
+var logger 			= require('morgan');
+var validator 		= require('validator');
+var mysql      		= require('mysql');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/Login');
-var registerRouter = require('./routes/Register');
-var managerRouter = require('./routes/Manager');
-var customerRouter = require('./routes/Customer');
-var cookRouter = require('./routes/Cook');
-var helpRouter = require('./routes/Help');
-var forYouRouter = require('./routes/ForYou');
+var indexRouter 	= require('./routes/index');
+var usersRouter 	= require('./routes/users');
+var loginRouter 	= require('./routes/Login');
+var registerRouter 	= require('./routes/Register');
+var managerRouter 	= require('./routes/Manager');
+var customerRouter 	= require('./routes/Customer');
+var cookRouter 		= require('./routes/Cook');
+var helpRouter 		= require('./routes/Help');
+var forYouRouter 	= require('./routes/ForYou');
 
 var app = express();
 
 // Remember to check what database you are connecting to and if the
 // values are correct.
-var mysql      = require('mysql');
 var connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'admin',
@@ -39,15 +39,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // use the route
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-app.use('/Register', registerRouter);
+app.use('/', 		indexRouter);
+app.use('/users', 	usersRouter);
+app.use('/login', 	loginRouter);
+app.use('/Register',registerRouter);
 app.use('/Manager', managerRouter);
-app.use('/Customer', customerRouter);
-app.use('/Cook', cookRouter);
-app.use('/Help', helpRouter);
-app.use('/ForYou', forYouRouter);
+app.use('/Customer',customerRouter);
+app.use('/Cook', 	cookRouter);
+app.use('/Help', 	helpRouter);
+app.use('/ForYou', 	forYouRouter);
 
 //Resquest GET
 app.get('/login', function(req, res){
