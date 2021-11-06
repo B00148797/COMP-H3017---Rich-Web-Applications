@@ -5,20 +5,59 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	
+
 	<title>Just-Eat - Cook</title>
 	<link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 
 <body>
-	<div data-role="page">
-		<div data-role="header">
-			<h1>Cook</h1>
-		</div><!-- /header -->
+	<div data-role="header">
+		<h1>Cook</h1>
+	</div>
 
+	<div style="margin-right: 20%; margin-left: 20%;">
+		<p><b>Dish information from the database</b></p>
+		<ul data-role="listview" data-count-theme="b" data-filter="true" data-filter-placeholder="Search a dish..."
+			data-inset="true">
+			<li>Whopper Sandwich<span class="ui-li-count">12</span></a></li>
+			<li>Bacon King<span class="ui-li-count">0</span></a></li>
+			<li>Cheeseburger<span class="ui-li-count">4</span></a></li>
+			<li>Steakhouse<span class="ui-li-count">328</span></a></li>
+			<li>Kids Hamburger<span class="ui-li-count">62</span></a></li>
+		</ul>
+	</div>
 
+	<hr style="margin-top: 2%; margin-bottom: 2%; margin-left: 20%; margin-right: 20%;">
 
-	</div><!-- /page -->
+	<div style="margin-right: 20%; margin-left: 20%;">
+		<p><b>Add / Modify a dish on the menu</b></p>
+
+		<form>
+			<ul data-role="listview" data-inset="true">
+				<li class="ui-field-contain">
+					<label for="name2">Name of the dish:</label>
+					<input type="text" name="name2" id="name2" value="" data-clear-btn="true">
+				</li>
+				<li class="ui-field-contain">
+					<label for="textarea2">Description of the dish:</label>
+					<textarea cols="40" rows="8" name="textarea2" id="textarea2"></textarea>
+				</li>
+				<li class="ui-field-contain">
+					<label for="slider2">Quantity:</label>
+					<input type="range" name="slider2" id="slider2" value="0" min="0" max="100" data-highlight="true">
+				</li>
+				<li class="ui-body ui-body-b">
+					<fieldset class="ui-grid-a">
+						<div class="ui-block-a"><button type="submit"
+								class="ui-btn ui-corner-all ui-btn-a">Cancel</button></div>
+						<div class="ui-block-b"><button type="submit"
+								class="ui-btn ui-corner-all ui-btn-a">Submit</button></div>
+					</fieldset>
+				</li>
+			</ul>
+		</form>
+	</div>
+
 </body>
 
 <script src="javascripts/scriptCook.js"></script>

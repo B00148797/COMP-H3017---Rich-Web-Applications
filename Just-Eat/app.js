@@ -87,6 +87,11 @@ app.post('/Login', function (req, res) {
 	});
 });
 
+//Resquest GET Register
+app.get('/Register', function (req, res) {
+
+});
+
 //Resquest POST Register
 app.post('/Register', function (req, res) {
 	var email = req.body.email;
@@ -123,6 +128,15 @@ app.post('/Register', function (req, res) {
 	}
 });
 
+//Resquest GET Cook
+app.get('/Cook', function (req, res) {
+	
+});
+
+//Resquest POST Cook
+app.post('/Cook', function (req, res) {
+	
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
