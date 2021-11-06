@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // use the route
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/login', loginRouter);
+app.use('/Login', loginRouter);
 app.use('/Register', registerRouter);
 app.use('/Manager', managerRouter);
 app.use('/Customer', customerRouter);
@@ -57,18 +57,20 @@ app.use('/Cook', cookRouter);
 app.use('/Help', helpRouter);
 app.use('/ForYou', forYouRouter);
 
-//Resquest GET
-app.get('/login', function (req, res) {
+//Resquest GET Login
+app.get('/Login', function (req, res) {
 
 });
 
-//Resquest POST
-app.post('/login', function (req, res) {
+//Resquest POST Login
+app.post('/Login', function (req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
+	var sql_SELECT = "SELECT * FROM login WHERE Username = '" + username + "' AND Password = '" + password + "'";
+	
 	console.log("Client -> Username: " + username + " Password: " + password);
 
-	connection.query("SELECT * FROM login WHERE Username = '" + username + "' AND Password = '" + password + "'", function (error, results) {
+	connection.query(sql_SELECT, function (error, results) {
 		if (error) throw error;
 		console.log(results);
 
@@ -83,6 +85,42 @@ app.post('/login', function (req, res) {
 			res.send("Error");
 		}
 	});
+});
+
+//Resquest POST Register
+app.post('/Register', function (req, res) {
+	var email = req.body.email;
+	var username = req.body.username;
+	var password1 = req.body.password1;
+	var password2 = req.body.password2;
+	console.log("Client -> Email: " + email + " Username: " + username + " Password: " + password1);
+
+	if(email != "" && username != "" && password1 == password2){
+		if(validator.isEmail(email) && !validator.isEmpty(username) && !validator.isEmpty(password1) && !validator.isEmpty(password2)){
+			var sql_INSERT = "INSERT INTO login (Email, Username, Password) VALUES ('" + email + "', '" + username + "', '" + password1 + "')";
+			var sql_SELECT = "SELECT * FROM login WHERE Email = '" + email + "' OR Username = '" + username + "'";
+
+			connection.query(sql_SELECT, function (error, results) {
+				if (error) throw error;
+
+				if(results[0] == undefined){
+					connection.query(sql_INSERT, function (error, results) {
+						if (error) throw error;
+						console.log(results);
+					});
+					res.send("OK!");
+				}
+				else
+				{
+					res.send("ErrorDoublon");
+				}
+			});
+		}
+		else
+		{
+			res.send("ErrorInput");
+		}		
+	}
 });
 
 
