@@ -18,7 +18,7 @@
 	<div style="margin-right: 20%; margin-left: 20%;">
 		<p><b>Dish information from the database</b></p>
 		<ul data-role="listview" data-count-theme="b" data-filter="true" data-filter-placeholder="Search a dish..."
-			data-inset="true">
+			data-inset="true" id="listviewDish">
 			<li>Whopper Sandwich<span class="ui-li-count">12</span></a></li>
 			<li>Bacon King<span class="ui-li-count">0</span></a></li>
 			<li>Cheeseburger<span class="ui-li-count">4</span></a></li>
@@ -36,22 +36,22 @@
 			<ul data-role="listview" data-inset="true">
 				<li class="ui-field-contain">
 					<label for="name2">Name of the dish:</label>
-					<input type="text" name="name2" id="name2" value="" data-clear-btn="true">
+					<input type="text" name="name2" id="nameDish" value="" data-clear-btn="true">
 				</li>
 				<li class="ui-field-contain">
 					<label for="textarea2">Description of the dish:</label>
-					<textarea cols="40" rows="8" name="textarea2" id="textarea2"></textarea>
+					<textarea cols="40" rows="8" name="textarea2" id="textareaDescription"></textarea>
 				</li>
 				<li class="ui-field-contain">
 					<label for="slider2">Quantity:</label>
-					<input type="range" name="slider2" id="slider2" value="0" min="0" max="100" data-highlight="true">
+					<input type="range" name="slider2" id="sliderQuantity" value="0" min="0" max="100" data-highlight="true">
 				</li>
 				<li class="ui-body ui-body-b">
 					<fieldset class="ui-grid-a">
 						<div class="ui-block-a"><button type="submit"
-								class="ui-btn ui-corner-all ui-btn-a">Cancel</button></div>
+								class="ui-btn ui-corner-all ui-btn-a" id="buttonCancel">Cancel</button></div>
 						<div class="ui-block-b"><button type="submit"
-								class="ui-btn ui-corner-all ui-btn-a">Submit</button></div>
+								class="ui-btn ui-corner-all ui-btn-a" id="buttonSubmit">Submit</button></div>
 					</fieldset>
 				</li>
 			</ul>

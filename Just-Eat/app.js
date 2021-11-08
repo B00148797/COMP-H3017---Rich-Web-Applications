@@ -67,21 +67,21 @@ app.post('/Login', function (req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
 	var sql_SELECT = "SELECT * FROM login WHERE Username = '" + username + "' AND Password = '" + password + "'";
-	
+
 	console.log("Client -> Username: " + username + " Password: " + password);
 
 	connection.query(sql_SELECT, function (error, results) {
 		if (error) throw error;
 		console.log(results);
 
-		if(results[0] !== undefined){
+		if (results[0] !== undefined) {
 			console.log("Server -> Username:" + results[0].Username + " Password:" + results[0].Password);
 
-			if(results[0].Password == password){
+			if (results[0].Password == password) {
 				console.log("Password correct!");
 				res.send(results[0].Username);
 			}
-		}else{
+		} else {
 			res.send("Error");
 		}
 	});
@@ -100,42 +100,49 @@ app.post('/Register', function (req, res) {
 	var password2 = req.body.password2;
 	console.log("Client -> Email: " + email + " Username: " + username + " Password: " + password1);
 
-	if(email != "" && username != "" && password1 == password2){
-		if(validator.isEmail(email) && !validator.isEmpty(username) && !validator.isEmpty(password1) && !validator.isEmpty(password2)){
+	if (email != "" && username != "" && password1 == password2) {
+		if (validator.isEmail(email) && !validator.isEmpty(username) && !validator.isEmpty(password1) && !validator.isEmpty(password2)) {
 			var sql_INSERT = "INSERT INTO login (Email, Username, Password) VALUES ('" + email + "', '" + username + "', '" + password1 + "')";
 			var sql_SELECT = "SELECT * FROM login WHERE Email = '" + email + "' OR Username = '" + username + "'";
 
 			connection.query(sql_SELECT, function (error, results) {
 				if (error) throw error;
 
-				if(results[0] == undefined){
+				if (results[0] == undefined) {
 					connection.query(sql_INSERT, function (error, results) {
 						if (error) throw error;
 						console.log(results);
 					});
 					res.send("OK!");
-				}
-				else
-				{
+				} else {
 					res.send("ErrorDoublon");
 				}
 			});
-		}
-		else
-		{
+		} else {
 			res.send("ErrorInput");
-		}		
+		}
 	}
 });
 
 //Resquest GET Cook
 app.get('/Cook', function (req, res) {
-	
+
 });
 
 //Resquest POST Cook
 app.post('/Cook', function (req, res) {
-	
+	var sql_SELECT = "SELECT Name FROM products";
+	var sql_SELECT_COUNT = "SELECT COUNT(*) AS Name FROM products";
+
+	connection.query(sql_SELECT_COUNT, function (error, results) {
+		if (error) throw error;
+		console.log("Total number of dishes: " + results[0].Name);
+	});
+
+	connection.query(sql_SELECT, function (error, results) {
+		if (error) throw error;
+		console.log(results);
+	});
 });
 
 // catch 404 and forward to error handler

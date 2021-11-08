@@ -6,7 +6,7 @@ $( "#buttonLogin" ).click(function() {
     var valuePassword = $('#password').val();
 
     // Send the data
-    $.post( "/Login", { username: valueUsername, password: valuePassword }).done(function( data ) {
+    $.post( "/Login", { username: valueUsername, password: valuePassword }).done(function(data) {
 
         if(data == "Error"){
             document.getElementById("messageError").textContent = "Incorrect username or password, check the information you entered.";
