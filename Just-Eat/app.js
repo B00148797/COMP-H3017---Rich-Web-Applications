@@ -126,23 +126,18 @@ app.post('/Register', function (req, res) {
 
 //Resquest GET Cook
 app.get('/Cook', function (req, res) {
-
+	
 });
 
 //Resquest POST Cook
 app.post('/Cook', function (req, res) {
-	var sql_SELECT = "SELECT Name FROM products";
-	var sql_SELECT_COUNT = "SELECT COUNT(*) AS Name FROM products";
-
-	connection.query(sql_SELECT_COUNT, function (error, results) {
-		if (error) throw error;
-		console.log("Total number of dishes: " + results[0].Name);
-	});
+	var sql_SELECT = "SELECT * FROM products";
 
 	connection.query(sql_SELECT, function (error, results) {
 		if (error) throw error;
 		console.log(results);
-	});
+		res.send(results);
+	});	
 });
 
 // catch 404 and forward to error handler
