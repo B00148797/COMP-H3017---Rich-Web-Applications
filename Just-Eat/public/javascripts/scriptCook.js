@@ -5,7 +5,7 @@ $("#buttonSubmit").click(function () {
     var valueQuantityDish = $("#quantityDish").val();
     var valuePriceDish = $("#priceDish").val();
 
-    $.post( "/Cook", { nameDish: valueNameDish, descriptionDish: valueDescriptionDish, imageDish: valueImageDish, quantityDish: valueQuantityDish, priceDish: valuePriceDish }).done(function(data) {
+    $.post("/Cook", { nameDish: valueNameDish, descriptionDish: valueDescriptionDish, imageDish: valueImageDish, quantityDish: valueQuantityDish, priceDish: valuePriceDish }).done(function(data) {
 
     });
 

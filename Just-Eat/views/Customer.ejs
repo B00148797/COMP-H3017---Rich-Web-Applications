@@ -34,28 +34,15 @@
 									bun.</p>
 								<h2>9.80€</h2>
 							</a>
-							<a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+							<a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop" onclick="buttonAddListPay('Steakhouse', 9.80)"></a>
 						</li>
 						-->
-
-						<li><a href="#">
-								<img style="margin-top: 2.5%;"
-									src="https://www.whopper.ie/wp-content/uploads/2021/04/BB_STEAKHOUSE-v1_extra_cheese.png">
-								<h2>Steakhouse</h2>
-								<p>Get yourself down to the Steakhouse. A 100% flame-grilled 100% Irish beef patty
-									topped with
-									bacon, cheese, crispy onion, Western BBQ sauce, lettuce and tomato. Served in a corn
-									dusted
-									bun.</p>
-								<h2>9.80€</h2>
-							</a>
-							<a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop" data-customattr="TESTESTTES"></a>
-						</li>
 					</ul>
 					<div data-role="popup" id="purchase" data-theme="a" data-overlay-theme="b" class="ui-content"
 						style="max-width:340px; padding-bottom:2em;">
 						<h3>Purchase this dish?</h3>
-						<p>Do you want to add this dish to your shopping cart? You can continue with your purchase.</p>
+						<p>Do you want to add this dish to your shopping cart? You can continue with your
+							purchase.</p>
 						<input type="range" name="slider-1" id="slider-1" data-highlight="true" min="0" max="10"
 							value="1">
 						<a href="index.html" data-rel="back"
@@ -82,7 +69,7 @@
 							</tr>
 						</thead>
 						<tbody id="listTbody">
-						<!--
+							<!--
 						<tr>
 							<th>1</th>
 							<td>Steakhouse</td>
@@ -94,7 +81,7 @@
 						<tfoot>
 							<tr>
 								<td class="right" colspan="3">Total:</td>
-								<td class="right" id="totalPrice"><a>33.95€</a></td>
+								<td class="right"><a id="labelTotalPrice">0.00€</a></td>
 							</tr>
 						</tfoot>
 					</table>

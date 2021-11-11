@@ -57,6 +57,16 @@ app.use('/Cook', cookRouter);
 app.use('/Help', helpRouter);
 app.use('/ForYou', forYouRouter);
 
+//Resquest GET Index
+app.get('/Index', function (req, res) {
+
+});
+
+//Resquest POST Index
+app.post('/Index', function (req, res) {
+
+});
+
 //Resquest GET Login
 app.get('/Login', function (req, res) {
 
@@ -171,6 +181,16 @@ app.post('/Customer', function (req, res) {
 		console.log(results);
 		res.send(results);
 	});	
+});
+
+//Resquest GET Manager
+app.get('/Manager', function (req, res) {
+	
+});
+
+//Resquest POST Manager
+app.post('/Manager', function (req, res) {
+	
 });
 
 // catch 404 and forward to error handler
