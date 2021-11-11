@@ -16,49 +16,90 @@
 			<h1>Customer</h1>
 		</div><!-- /header -->
 
-		<div style="margin-top: 2%; margin-bottom: 2%; margin-right: 10%; margin-left: 10%;">
-			<ul data-role="listview" data-split-icon="plus" data-split-theme="a" data-inset="true">
-				<li><a href="#">
-						<img src="images/Hamburger.png">
-						<h2>Steakhouse</h2>
-						<p>Get yourself down to the Steakhouse. A 100% flame-grilled 100% Irish beef patty topped with bacon, cheese, crispy onion, Western BBQ sauce, lettuce and tomato. Served in a corn dusted bun.</p>
-						<h2>9.80€</h2>
-					</a>
-					<a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase
-						album</a>
-				</li>
-				<li><a href="#">
-						<img src="images/Hamburger.png">
-						<h2>Bacon King</h2>
-						<p>Our Bacon King Sandwich features two savoury flame grilled 100% Irish beef burgers, topped with a hearty portion of bacon, melted cheese, and topped with ketchup, and creamy mayonnaise, all on a soft sesame seed bun.</p>
-						<h2>8.45€</h2>
-					</a>
-					<a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase
-						album</a>
-				</li>
-				<li><a href="#">
-						<img src="images/Hamburger.png">
-						<h2>Whopper Sandwich</h2>
-						<p>Our favourite burger. Our WHOPPER® Sandwich is a ¼ lb* of savory flame-grilled 100% Irish beef topped with juicy tomatoes, fresh cut lettuce, creamy mayonnaise, crunchy pickles, and sliced white onions on a soft sesame seed bun. *Based on pre-cooked patty weight.</p>
-						<h2>5.70€</h2>
-					</a>
-					<a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase
-						album</a>
-				</li>
-			</ul>
-			<div data-role="popup" id="purchase" data-theme="a" data-overlay-theme="b" class="ui-content"
-				style="max-width:340px; padding-bottom:2em;">
-				<h3>Purchase this dish?</h3>
-				<p>Do you want to add this dish to your shopping cart? You can continue with your purchase.</p>
-				<a href="index.html" data-rel="back"
-					class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Yes I'm hungry</a>
-				<a href="index.html" data-rel="back"
-					class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
+		<div class="ui-grid-a" style="margin-top: 2%; margin-bottom: 2%;">
+			<div class="ui-block-a" style="width: 70%;">
+
+				<div style="margin-right: 2%; margin-left: 2%;">
+					<ul data-role="listview" data-split-icon="plus" data-split-theme="a" data-inset="true" id="listviewDish">
+						<!--
+						<li><a href="#">
+								<img style="margin-top: 2.5%;"
+									src="https://www.whopper.ie/wp-content/uploads/2021/04/BB_STEAKHOUSE-v1_extra_cheese.png">
+								<h2>Steakhouse</h2>
+								<p>Get yourself down to the Steakhouse. A 100% flame-grilled 100% Irish beef patty
+									topped with
+									bacon, cheese, crispy onion, Western BBQ sauce, lettuce and tomato. Served in a corn
+									dusted
+									bun.</p>
+								<h2>9.80€</h2>
+							</a>
+							<a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+						</li>
+						-->
+					</ul>
+					<div data-role="popup" id="purchase" data-theme="a" data-overlay-theme="b" class="ui-content"
+						style="max-width:340px; padding-bottom:2em;">
+						<h3>Purchase this dish?</h3>
+						<p>Do you want to add this dish to your shopping cart? You can continue with your purchase.</p>
+						<a href="index.html" data-rel="back"
+							class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini" id="buttonAddListPay">Yes
+							I'm hungry</a>
+						<a href="index.html" data-rel="back"
+							class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
+					</div>
+				</div>
+			</div>
+			
+
+			
+			<div class="ui-block-b" style="width: 30%;">
+				<div style="margin-right: 2%; margin-left: 2%;">
+					<table data-role="table" id="table-column-toggle" 
+					class="ui-responsive table-stroke">
+					<thead>
+						<tr>
+							<th>N°:</th>
+							<th>Dish choose</th>
+							<th>Amount</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>1</th>
+							<td>Steakhouse</td>
+							<td>1</td>
+							<td>9.80€</td>
+						</tr>
+						<tr>
+							<th>2</th>
+							<td>Steakhouse</td>
+							<td>1</td>
+							<td>9.80€</td>
+						</tr>
+						<tr>
+							<th>3</th>
+							<td>Whopper Sandwich</td>
+							<td>1</td>
+							<td>5.70€</td>
+						</tr>
+						<tr>
+							<th>4</th>
+							<td>Bacon King</td>
+							<td>1</td>
+							<td>8.45€</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td class="right" colspan="3">Total:</td><td class="right"><a>33.95€</a></td>
+						</tr>
+					</tfoot>
+				</table>
+				<button class="ui-btn" id="buttonPay">Pay</button>
+				</div>
 			</div>
 		</div>
-
-
-
 	</div>
 </body>
 

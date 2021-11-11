@@ -140,6 +140,22 @@ app.post('/Cook', function (req, res) {
 	});	
 });
 
+//Resquest GET Customer
+app.get('/Customer', function (req, res) {
+	
+});
+
+//Resquest POST Customer
+app.post('/Customer', function (req, res) {
+	var sql_SELECT = "SELECT * FROM products";
+
+	connection.query(sql_SELECT, function (error, results) {
+		if (error) throw error;
+		console.log(results);
+		res.send(results);
+	});	
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	next(createError(404));
