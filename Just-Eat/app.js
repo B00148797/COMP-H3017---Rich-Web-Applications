@@ -131,13 +131,30 @@ app.get('/Cook', function (req, res) {
 
 //Resquest POST Cook
 app.post('/Cook', function (req, res) {
-	var sql_SELECT = "SELECT * FROM products";
+	var nameDish = req.body.nameDish;
+	var descriptionDish = req.body.descriptionDish;
+	var imageDish = req.body.imageDish;
+	var quantityDish = req.body.quantityDish;
+	var priceDish = req.body.priceDish;
 
-	connection.query(sql_SELECT, function (error, results) {
-		if (error) throw error;
-		console.log(results);
-		res.send(results);
-	});	
+	console.log(nameDish + descriptionDish + imageDish + quantityDish + priceDish);
+
+	if(nameDish != undefined && descriptionDish != undefined && imageDish != undefined && quantityDish != 0 && priceDish != 0){
+		var sql_INSERT = "INSERT INTO products (Name, Description, Image, Quantity, Price) VALUES ('" + nameDish + "', '" + descriptionDish + "', '" + imageDish + "', '" + quantityDish + "', '" + priceDish + "')";
+		console.log(sql_INSERT);
+		connection.query(sql_INSERT, function (error, results) {
+            if (error) throw error;
+        });
+	}
+	else{
+		var sql_SELECT = "SELECT * FROM products";
+		console.log(sql_SELECT);
+		connection.query(sql_SELECT, function (error, results) {
+			if (error) throw error;
+			console.log(results);
+			res.send(results);
+		});	
+	}
 });
 
 //Resquest GET Customer

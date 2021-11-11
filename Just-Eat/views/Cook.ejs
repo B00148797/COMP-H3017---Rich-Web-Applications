@@ -28,7 +28,6 @@
 	<div style="margin-right: 15%; margin-left: 15%;">
 		<p><b>Add / Modify a dish on the menu</b></p>
 
-		<form>
 			<ul data-role="listview" data-inset="true">
 				<li class="ui-field-contain">
 					<label for="name2">Name of the dish:</label>
@@ -36,11 +35,19 @@
 				</li>
 				<li class="ui-field-contain">
 					<label for="textarea2">Description of the dish:</label>
-					<textarea cols="40" rows="8" name="textarea2" id="textareaDescription"></textarea>
+					<textarea cols="40" rows="8" name="textarea2" id="descriptionDish"></textarea>
+				</li>
+				<li class="ui-field-contain">
+					<label for="image1">Image of the dish:</label>
+					<input type="text" name="image1" id="imageDish" value="" data-clear-btn="true">
 				</li>
 				<li class="ui-field-contain">
 					<label for="slider2">Quantity:</label>
-					<input type="range" name="slider2" id="sliderQuantity" value="0" min="0" max="100" data-highlight="true">
+					<input type="range" name="slider2" id="quantityDish" value="1" min="0" max="100" data-highlight="true">
+				</li>
+				<li class="ui-field-contain">
+					<label for="number-2">Price in €:</label>
+					<input type="number" data-clear-btn="true" name="number-2" id="priceDish" value="">
 				</li>
 				<li class="ui-body ui-body-b">
 					<fieldset class="ui-grid-a">
@@ -51,7 +58,6 @@
 					</fieldset>
 				</li>
 			</ul>
-		</form>
 	</div>
 
 </body>

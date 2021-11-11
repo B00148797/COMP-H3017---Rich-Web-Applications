@@ -2,13 +2,14 @@ var totalPrice = 0;
 var numberDishInList = 0;
 
 $("#buttonPay").click(function () {
-    alert("buttonPay");
+    //alert("buttonPay");
 });
 
 $("#buttonAddListPay").click(function () {
-    alert($(this).parent().Name);
+    //alert("buttonAddListPay");
 
     numberDishInList++;
+    $("#listTbody").append('<tr><th>' + numberDishInList + '</th><td>Steakhouse</td><td>' + $("#slider-1").val() + '</td><td>9.80€</td></tr>');
 });
 
 $.post("/Customer").done(function (data) {
