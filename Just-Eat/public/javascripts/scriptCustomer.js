@@ -35,6 +35,13 @@ $("#buttonPay").click(function () {
     $.post("/Customer", { infoOrder: infoOrder, totalPrice: totalPrice.toFixed(2) }).done(function(data) {
 
     });
+
+    if (confirm('Have you finished your order? If yes the transaction will be automatically accepted.')) {
+        alert("The order has been accepted.");
+        location.reload();
+      } else {
+          //Do nothing
+      }    
 });
 
 $("#buttonAddListPay").click(function () {
