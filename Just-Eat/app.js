@@ -174,13 +174,39 @@ app.get('/Customer', function (req, res) {
 
 //Resquest POST Customer
 app.post('/Customer', function (req, res) {
-	var sql_SELECT = "SELECT * FROM products";
+	var infoOrder = req.body.infoOrder;
+	var totalPrice = req.body.totalPrice;
+	
+	console.log(infoOrder);
+	console.log(totalPrice);
 
-	connection.query(sql_SELECT, function (error, results) {
-		if (error) throw error;
-		console.log(results);
-		res.send(results);
-	});	
+	if(infoOrder != undefined && totalPrice != undefined){ 
+		var infoDate = new Date();
+
+		var year = infoDate.getFullYear();
+		var month = infoDate.getMonth();
+		var day = infoDate.getDay();
+		var hour = infoDate.getHours();
+		var minute = infoDate.getMinutes();
+		var second = infoDate.getSeconds();
+		var dateTime = (year + "-" + month + "-" + day + " " + hour + "-" + minute + "-" + second);		
+
+		var sql_INSERT = "INSERT INTO purchaseorder (Description, PriceOrder, DateTime) VALUES ('" + infoOrder + "', '" + totalPrice + "', '" + dateTime + "')";
+		console.log(sql_INSERT);
+
+		connection.query(sql_INSERT, function (error, results) {
+            if (error) throw error;
+        });
+	}
+	else{
+		var sql_SELECT = "SELECT * FROM products";
+		console.log(sql_SELECT);
+		connection.query(sql_SELECT, function (error, results) {
+			if (error) throw error;
+			console.log(results);
+			res.send(results);
+		});
+	}
 });
 
 //Resquest GET Manager
@@ -190,7 +216,14 @@ app.get('/Manager', function (req, res) {
 
 //Resquest POST Manager
 app.post('/Manager', function (req, res) {
-	
+	var sql_SELECT = "SELECT * FROM purchaseorder";
+	console.log(sql_SELECT);
+
+	connection.query(sql_SELECT, function (error, results) {
+		if (error) throw error;
+		console.log(results);
+		res.send(results);
+	});	
 });
 
 // catch 404 and forward to error handler
