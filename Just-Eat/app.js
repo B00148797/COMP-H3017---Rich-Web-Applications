@@ -185,11 +185,12 @@ app.post('/Customer', function (req, res) {
 
 		var year = infoDate.getFullYear();
 		var month = infoDate.getMonth();
-		var day = infoDate.getDay();
+		var day = infoDate.getDate();
+
 		var hour = infoDate.getHours();
 		var minute = infoDate.getMinutes();
 		var second = infoDate.getSeconds();
-		var dateTime = (year + "-" + month + "-" + day + " " + hour + "-" + minute + "-" + second);		
+		var dateTime = (year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);		
 
 		var sql_INSERT = "INSERT INTO purchaseorder (Description, PriceOrder, DateTime) VALUES ('" + infoOrder + "', '" + totalPrice + "', '" + dateTime + "')";
 		console.log(sql_INSERT);
@@ -216,7 +217,7 @@ app.get('/Manager', function (req, res) {
 
 //Resquest POST Manager
 app.post('/Manager', function (req, res) {
-	var sql_SELECT = "SELECT * FROM purchaseorder";
+	var sql_SELECT = "SELECT * FROM purchaseorder ORDER BY 'DateTime' DESC";
 	console.log(sql_SELECT);
 
 	connection.query(sql_SELECT, function (error, results) {
