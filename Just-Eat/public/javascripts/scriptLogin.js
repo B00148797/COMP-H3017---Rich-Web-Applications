@@ -5,8 +5,14 @@ $("#buttonLogin").click(function() {
     // Get the values password
     var valuePassword = $('#password').val();
 
+    var password = forge.md.sha256.create();  
+    password.start();  
+    password.update(valuePassword, "utf8");
+
+    var hashPassword = password.digest().toHex();
+
     // Send the data
-    $.post("/Login", { username: valueUsername, password: valuePassword }).done(function(data) {
+    $.post("/Login", { username: valueUsername, password: hashPassword }).done(function(data) {
 
         if(data == "Error"){
             document.getElementById("messageError").textContent = "Incorrect username or password, check the information you entered.";

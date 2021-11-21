@@ -5,7 +5,18 @@ $("#buttonResgister").click(function() {
     var valuePassword1 = $('#password1').val();
     var valuePassword2 = $('#password2').val();
 
-    $.post("/Register", { email: valueEmail, username: valueUsername, password1: valuePassword1, password2: valuePassword2 }).done(function( data ) {      
+    var password1 = forge.md.sha256.create();  
+    password1.start();  
+    password1.update(valuePassword1, "utf8");
+
+    var password2 = forge.md.sha256.create();  
+    password2.start();  
+    password2.update(valuePassword2, "utf8");
+
+    var hashPassword1 = password1.digest().toHex();
+    var hashPassword2 = password2.digest().toHex(); 
+
+    $.post("/Register", { email: valueEmail, username: valueUsername, password1: hashPassword1, password2: hashPassword2 }).done(function( data ) {      
         
         if(data == "ErrorInput"){
             document.getElementById("messageError").textContent = "The information entered is not correct.";
