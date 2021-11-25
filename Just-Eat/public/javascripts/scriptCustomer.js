@@ -4,6 +4,8 @@ var numberDishInList = 0;
 var nameOfDish = "";
 var priceOfDish = 0;
 
+var orderInformation = [];
+
 function buttonAddListPay(name, price) {
     nameOfDish = arguments[0];
     priceOfDish = arguments[1];
@@ -12,24 +14,9 @@ function buttonAddListPay(name, price) {
 $("#buttonPay").click(function () {
 
     var infoOrder = "";
-
-    //gets table
-    var oTable = document.getElementById('table-column-toggle');
-    //gets rows of table
-    var rowLength = oTable.rows.length;
-    //loops through rows    
-
-    for (i = 1; i < rowLength - 1; i++) {
-        //gets cells of current row
-        var oCells = oTable.rows.item(i).cells;
-        //gets amount of cells of current row
-
-        infoOrder += oCells.item(2).innerHTML;
-        infoOrder += "x";
-        infoOrder += oCells.item(1).innerHTML;
-        infoOrder += " (";
-        infoOrder += oCells.item(3).innerHTML;
-        infoOrder += ")   ";
+    for(var i = 0 ; i < orderInformation.length ; i++)    
+    {      
+        infoOrder += orderInformation[i].Amount + "x" + orderInformation[i].Name + " " + orderInformation[i].Price + "   ";
     }
 
     if(totalPrice > 0){
@@ -52,6 +39,12 @@ $("#buttonAddListPay").click(function () {
     var multiplicateur = $('#slider-1').val();
     priceOfDish = priceOfDish * multiplicateur;
     totalPrice += priceOfDish;
+
+    orderInformation.push({
+        Amount: multiplicateur,
+        Name: nameOfDish,
+        Price: "(" + priceOfDish.toFixed(2) + "€)"
+    });
 
     $("#labelTotalPrice").text(totalPrice.toFixed(2) + "€");
     $("#listTbody").append('<tr><th>' + numberDishInList + '</th><td>' + nameOfDish + '</td><td>' + multiplicateur + '</td><td>' + priceOfDish.toFixed(2) + '€</td></tr>');
